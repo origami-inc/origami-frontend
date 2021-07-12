@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.187.0/containers/vue
+{
+	"name": "Vue (Community)",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		// Update 'VARIANT' to pick a Node version: 10, 12, 14
+		"args": { "VARIANT": "14" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"cSpell.enabled": true,
+		"cSpell.language": "en,en-US,pt,pt_BR",
+	},
+	
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"octref.vetur",
+		"esbenp.prettier-vscode",
+		"syler.sass-indented",
+		"eamodio.gitlens",
+		"streetsidesoftware.code-spell-checker-portuguese-brazilian",
+		"streetsidesoftware.code-spell-checker",
+	],
+	
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		8080
+	],
+	
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "uname -a && yarn install",
+	
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+}
